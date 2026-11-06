@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Our TV</string>
+    <string name="helper_name">Our TV helper</string>
+    <string name="helper_desc">Turns the TV off when a Good night timer ends, shows prayer reminders, and opens Our TV from the Home button when that is switched on. It does not read the screen. Turn this off to go back to the normal Google TV home.</string>
+</resources>

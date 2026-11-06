@@ -1,0 +1,27 @@
+# Only the app and its tools belong in the repository. Everything else in this folder
+# (photos, previews, research, old prototypes) is private and stays on this computer.
+/*
+!/.gitignore
+!/README.md
+!/app/
+!/tools/
+
+# A family's own files: name, banner, people, city and pictures
+/app/private/
+/app/assets/family.json
+/app/assets/avatars/
+/tools/make_avatars.py
+keys.env
+
+# Build output and signing keys
+*.apk
+*.keystore
+*.jks
+*.idsig
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
