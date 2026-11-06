@@ -1,0 +1,18 @@
+{
+  "_note": "Copy this file to app/private/assets/family.json and make it yours. Everything in app/private is never committed.",
+  "_optional": "brand_en and brand_ar are the name on screen. app_id and store keep an existing install's identity and settings.",
+  "brand_en": "OUR TV",
+  "brand_ar": "تلفازنا",
+  "home": {
+    "city_en": "Makkah",
+    "city_ar": "مكة",
+    "lat": 21.4225,
+    "lng": 39.8262
+  },
+  "people": [
+    { "id": "noor", "en": "Noor", "ar": "نور" },
+    { "id": "sami", "en": "Sami", "ar": "سامي" },
+    { "id": "lina", "en": "Lina", "ar": "لينا" },
+    { "id": "omar", "en": "Omar", "ar": "عمر" }
+  ]
+}

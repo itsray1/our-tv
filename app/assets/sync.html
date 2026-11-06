@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sound and picture test</title>
+<style>
+body{margin:0;background:#06121c;color:#f5f2ec;font:18px/1.5 system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center}
+#dot{width:52vmin;height:52vmin;border-radius:50%;background:#1b2733;transition:none}
+#dot.on{background:#fff}
+p{max-width:520px;margin:18px 20px;color:rgba(245,242,236,.75)}
+button{font:inherit;font-weight:600;background:#f5f2ec;color:#06121c;border:0;border-radius:14px;padding:14px 28px}
+</style>
+</head>
+<body>
+<div id="dot"></div>
+<p>Mirror this screen to the TV, then press Start. On the TV, the circle flashes white exactly when the beep plays.<br>
+If you hear the beep <b>before</b> the flash, the sound is early. If you hear it <b>after</b>, the sound is late.</p>
+<p dir="rtl">اعرض هذه الشاشة على التلفاز ثم اضغط ابدأ. الدائرة تومض مع الصفارة تماماً. إن سمعت الصفارة قبل الوميض فالصوت مبكر، وإن سمعتها بعده فالصوت متأخر.</p>
+<button id="go">Start · ابدأ</button>
+<script>
+let ctx, timer;
+document.getElementById('go').onclick = () => {
+  ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+  ctx.resume();
+  clearInterval(timer);
+  const dot = document.getElementById('dot');
+  timer = setInterval(() => {
+    // The beep and the flash start in the same frame and last 120 ms.
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.frequency.value = 1000; g.gain.value = 0.6;
+    o.connect(g).connect(ctx.destination);
+    o.start(); o.stop(ctx.currentTime + 0.12);
+    dot.classList.add('on');
+    setTimeout(() => dot.classList.remove('on'), 120);
+  }, 1000);
+};
+</script>
+</body>
+</html>
